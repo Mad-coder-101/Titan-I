@@ -1,2 +1,2 @@
-export.bat
-info.env
+*.bat
+*.env
