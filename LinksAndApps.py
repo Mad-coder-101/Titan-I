@@ -19,7 +19,7 @@ def openLinkorApp(words):
         os.startfile("D:\Pranav\Python\VSCODE\Code.exe")
         engine.say('Opening V S Code')
     elif words == 'file explorer':
-        os.startfile('Home')
+        os.startfile("D://Pranav//")
         engine.say('Opening file explorer')
     engine.runAndWait()
 
