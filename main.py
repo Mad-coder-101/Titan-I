@@ -23,14 +23,17 @@ if __name__ == '__main__':
                 words = words.replace('titan','')
                 if 'wikipedia' in words:
                     words = words.replace('search wikipedia for', '')
-                    wikipedia.search(words)
+                    result = wikipedia.search(words,sentences = 5)
+                    engine.say(result)
+                    engine.runAndWait()
+                    
                 elif 'Google' in words:
                     words = words.replace('search google for', '')
-                    googlesearch.search(words)
+                    result = googlesearch.search(words)
+                    print('ok')
                 elif 'open' in words:
                     words = words.replace(' open ','')
                     LinksAndApps.openLinkorApp(words)
-                    print(words)
                 
             else:
                 continue
