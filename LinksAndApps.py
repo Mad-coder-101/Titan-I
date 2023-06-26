@@ -16,11 +16,20 @@ def openLinkorApp(words):
         webbrowser.open_new('https://mail.google.com/mail/u/0/?tab=rm&ogbl#inbox')
         engine.say('Opening Mail')
     elif words == 'vs code' or words == 'visual studio code' or words == 'code':
-        os.startfile("D:\Pranav\Python\VSCODE\Code.exe")
+        os.startfile("D:\\Pranav\\Python\\VSCODE\\Code.exe")
         engine.say('Opening V S Code')
     elif words == 'file explorer':
         os.startfile("D://Pranav//")
         engine.say('Opening file explorer')
+    elif words == 'zoom':
+        os.startfile('C:\\Users\\FAMILY\\Desktop\\Zoom.lnk')
+        engine.say('Opening zoom')
+    elif words == 'discord':
+        os.startfile('C:\\Users\\FAMILY\\Desktop\\Discord.lnk')
+        engine.say('Opening discord')
+    elif words == 'jax core':
+        os.startfile("C:\\Users\\FAMILY\\Desktop\\JaxCore.lnk")
+        engine.say('Opening Jax Core')
     engine.runAndWait()
 
 

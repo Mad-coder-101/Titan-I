@@ -5,8 +5,11 @@ import googlesearch
 import webbrowser
 import LinksAndApps
 import os
+import time
+import datetime
 recognizer = sr.Recognizer()
 engine = pyttsx3.init()
+engine.setProperty('rate',175)
 recognizer.dynamic_energy_threshold = False
 recognizer.dynamic_energy_threshold = .5
 if __name__ == '__main__':
@@ -27,14 +30,21 @@ if __name__ == '__main__':
                     engine.say(result)
                     engine.runAndWait()
                     
-                elif 'Google' in words:
-                    words = words.replace('search google for', '')
+                elif 'search google for ' in words:
+                    words = words.replace(' search google for ', '')
                     result = googlesearch.search(words)
-                    print('ok')
+                    engine.say(result['title'])
+                    engine.say(result['snippet'])
+                    engine.runAndWait()
                 elif 'open' in words:
                     words = words.replace(' open ','')
                     LinksAndApps.openLinkorApp(words)
-                
+                elif 'time' in words:
+                    engine.say(time.strftime("%I:%M %p"))
+                    engine.runAndWait()
+                elif 'date' in words:
+                    engine.say(datetime.date.today())
+                    engine.runAndWait()
             else:
                 continue
         except sr.UnknownValueError:
