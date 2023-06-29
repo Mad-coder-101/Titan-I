@@ -27,29 +27,22 @@ if __name__ == '__main__':
                 if 'wikipedia' in words:
                     words = words.replace('search wikipedia for', '')
                     result = wikipedia.search(words,sentences = 5)
-                    engine.say(result)
-                    engine.runAndWait()
-                    
+                    engine.say(result)                 
                 elif 'search google for ' in words:
                     words = words.replace(' search google for ', '')
-                    result = googlesearch.search(words)
-                    engine.say(result['title'])
-                    engine.say(result['snippet'])
-                    engine.runAndWait()
+                    webbrowser.open_new_tab(f"https://www.google.com / search?&q ={words}")
                 elif 'open' in words:
                     words = words.replace(' open ','')
                     LinksAndApps.openLinkorApp(words)
                 elif 'time' in words:
                     engine.say(time.strftime("%I:%M %p"))
-                    engine.runAndWait()
                 elif 'date' in words:
                     engine.say(datetime.date.today())
-                    engine.runAndWait()
+                engine.runAndWait()
             else:
                 continue
+
         except sr.UnknownValueError:
             continue
         except sr.RequestError as e:
             print("Error")
-
-

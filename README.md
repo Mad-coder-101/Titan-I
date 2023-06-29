@@ -1,1 +1,0 @@
-Titan, The best personal helper there is!
