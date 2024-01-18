@@ -1,28 +1,16 @@
-from PIL import Image , ImageTk
-
-from PIL import GifImagePlugin
-
 import tkinter as tk
- 
+import moviepy.editor as mp
 root = tk.Tk()
-imageObject = Image.open("bar.gif")
+bar_stay = tk.PhotoImage('pinkbluebar.png')
+bar_leave = tk.Video('bar_fade.mp4')
+blob = tk.Video('blob.blob.mp4')
+def start():
+    bar_stay.pack()
 
-print(imageObject.is_animated)
-
-print(imageObject.n_frames)
-
- 
-
-# Display individual frames from the loaded animated GIF file
-
-for frame in range(0,imageObject.n_frames):
-
-    fr = imageObject.seek(frame)
-
-    make = ImageTk.PhotoImage(fr)
-
-    img = tk.Image(make)
-
-    img.pack()
-
-tk.mainloop()
+def command_start():
+    bar_stay.destroy()
+    bar_leave.pack()
+    
+def command_speak():
+    bar_leave.destroy()
+    blob.pack()
